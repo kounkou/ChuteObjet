@@ -23,5 +23,6 @@ Rectangle
         id: name
         rotation: 180
         source: "./godbod.png"
+        smooth: true
     }
 }

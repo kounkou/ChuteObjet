@@ -28,8 +28,10 @@ void Counter::doTheStuff()
     if((h0-0.5*g*temps1*temps1) > 0)
     {
         setCounter(h0-E*g*pow(temps1,2));
-        temps1 = temps1 + 0.4;
+        temps1 = temps1 + 0.25;
+#ifdef DEBUG_DEMO_COUNTER
         cout<<m_counter<<endl;
+#endif
     }
     else if((h0-0.5*g*temps1*temps1) < 0)
     {
@@ -42,8 +44,10 @@ void Counter::doTheStuff()
         if((E*sqrt(2*g*h0)*temps2-0.5*g*pow(temps2,2)) >= 0)
         {
             setCounter(E*sqrt(2*g*h0)*temps2-0.5*g*pow(temps2,2));
-            temps2 = temps2 + 0.4;
+            temps2 = temps2 + 0.25;
+#ifdef DEBUG_DEMO_COUNTER
             cout<<m_counter<<endl;
+#endif
         }
         // On continue les rebonds...
         else

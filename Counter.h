@@ -14,6 +14,9 @@
 
 using namespace std;
 
+#define DEBUG_DEMO_COUNTER 0
+#undef  DEBUG_DEMO_COUNTER
+
 class Counter : public QObject
 {
     Q_OBJECT
