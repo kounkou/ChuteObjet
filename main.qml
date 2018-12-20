@@ -3,7 +3,7 @@
  * \author: godbod
  */
 
-import QtQuick 1.0
+import QtQuick 2.2
 
 Rectangle
 {

@@ -3,24 +3,24 @@
  * \author: godbod
  */
 
-#include <QApplication>
+#include <QGuiApplication>
 #include "Counter.h"
-#include <QDeclarativeView>
-#include <QDeclarativeContext>
+#include <QQuickView>
+#include <QQmlContext>
 
 int main(int argc, char **argv)
 {
-    QApplication app(argc, argv);
+    QGuiApplication app(argc, argv);
 
     // Déclaration de la vue QML
-    QDeclarativeView *view = new QDeclarativeView();
+    QQuickView* view = new QQuickView();
     Counter *c1 = new Counter();
 
     // recuperation du context
-    QDeclarativeContext *ctxt = view->rootContext();
+    QQmlContext *ctxt = view->rootContext();
     // liaison entre le BE et le FE
     ctxt->setContextProperty("myCounter", c1);
-    view->setSource(QUrl::fromLocalFile("./main.qml"));
+    view->setSource(QUrl("qrc:/main.qml"));
 
     // affichage
     view->show();
