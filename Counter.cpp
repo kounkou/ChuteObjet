@@ -17,7 +17,7 @@ Counter::Counter(QObject *parent) : QObject(parent)
     // hauteur de la chute en metre
     h0 = 500;
     E = elasticity;
-    g = 9.81;
+    g = 9.99;
 
     QObject::connect(&timer, SIGNAL(timeout()), this, SLOT(doTheStuff()));
     timer.start(25);
@@ -27,36 +27,22 @@ Counter::Counter(QObject *parent) : QObject(parent)
 void Counter::doTheStuff()
 {
     // On commence toujours par une chute libre
-    if((h0 - elasticity * g * temps1*temps1) > 0)
-    {
+    if((h0 - elasticity * g * temps1*temps1) > 0) {
         setCounter(h0-E*g*pow(temps1,2));
         temps1 = temps1 + 0.25;
-#ifdef DEBUG_DEMO_COUNTER
-        cout<<m_counter<<endl;
-#endif
-    }
-    else if((h0 - elasticity * g * temps1 * temps1) < 0)
-    {
+    } else if((h0 - elasticity * g * temps1 * temps1) < 0) {
         flagChuteLibre = false;
     }
 
     // on peut donc faire un premier rebond
-    if(flagChuteLibre == false)
-    {
-        if((E*sqrt(2 * g * h0) * temps2 - elasticity * g * pow(temps2, 2)) >= 0)
-        {
+    if (flagChuteLibre == false) {
+        if ((E*sqrt(2 * g * h0) * temps2 - elasticity * g * pow(temps2, 2)) >= 0) {
             setCounter(E*sqrt(2 * g * h0)*temps2 - elasticity * g * pow(temps2, 2));
             temps2 = temps2 + 0.25;
-#ifdef DEBUG_DEMO_COUNTER
-            cout<<m_counter<<endl;
-#endif
-        }
-        // On continue les rebonds...
-        else
-        {
+        } else {
+            // On continue les rebonds...
             h0 = pow(E,2)*h0;
-            if(h0 == 0)
-            {
+            if(h0 == 0) {
                 exit(0);
             }
             temps2 = 0;

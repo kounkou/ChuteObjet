@@ -16,12 +16,12 @@ Rectangle
 
     Image
     {
-        height: 40
-        width:  40
+        height: 50
+        width:  50
         x:350
         y:myCounter.counter
         id: name
-        rotation: 180
+        rotation:  180
         source: "./godbod.png"
         smooth: true
     }
