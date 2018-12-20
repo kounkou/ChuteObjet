@@ -44,7 +44,7 @@ Counter::Counter(QObject *parent) : QObject(parent)
 void Counter::doTheStuff()
 {
     // On commence toujours par une chute libre
-    if((h0 - elasticity * g * temps1*temps1) > 0) {
+    if ((h0 - elasticity * g * temps1*temps1) > 0) {
         setCounter(h0 - E * g * pow(temps1,2));
         temps1 = temps1 + 0.25;
     } else if((h0 - elasticity * g * temps1 * temps1) < 0) {
