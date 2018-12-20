@@ -3,7 +3,7 @@
  * 
  * brief            
  *    This application is the result of the collaboration between
- *    Rudy NGoteni, Boungou Jerome and myself
+ *    Rudy NGoteni, Boungou Jerome and Kounkou Godrain Jacques
  *    The purpose was to produce a simulation for a ball falling from
  *    a specific height.
  *    The test contains all kind of ballistic formulas used to reproduce
